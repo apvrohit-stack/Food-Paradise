@@ -1,0 +1,4 @@
+for db link in web browser
+http://localhost/phpmyadmin/index.php?route=/sql&pos=0&db=food_paradise&table=users
+
+sudo /Applications/XAMPP/xamppfiles/xampp start
