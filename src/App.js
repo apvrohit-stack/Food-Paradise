@@ -3,6 +3,8 @@ import OrderSection from "./OrderSection";
 import { useEffect, useState } from "react";
 import "./App.css";
 import FoodManagement from "./FoodManagement";
+import AmmuChatbot from "./components/AmmuChatbot";
+import { getFoodPrice } from "./data/foodData";
 
 import backgroundImage from "./assets/background image.avif";
 import healthyImage from "./assets/healthy image.jpg";
@@ -623,7 +625,7 @@ const currentFoods = [
   ),
 ].map((food) => ({
   ...food,
-  price: Number(food.price ?? foodPrices[food.name])
+  price: Number(food.price ?? foodPrices[food.name] ?? getFoodPrice(food))
 }));
 
 
@@ -813,6 +815,28 @@ const currentFoods = [
           </button>
 
         </div>
+
+        <AmmuChatbot
+          dietMode={dietMode}
+          setDietMode={setDietMode}
+          cart={cart}
+          cartCalories={cartCalories}
+          addToCart={addToCart}
+          orders={orders}
+          categories={categories}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          maxCalories={maxCalories}
+          setMaxCalories={setMaxCalories}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          setShowCart={setShowCart}
+          setShowOrders={setShowOrders}
+          setShowFoodManagement={setShowFoodManagement}
+          loggedIn={loggedIn}
+          username={username}
+          currentFoods={currentFoods}
+        />
 
       </div>
     );
@@ -1589,6 +1613,31 @@ const currentFoods = [
         </>
 
       )}
+
+      {/* =================================================
+          AMMU CHATBOT
+          ================================================= */}
+      <AmmuChatbot
+        dietMode={dietMode}
+        setDietMode={setDietMode}
+        cart={cart}
+        cartCalories={cartCalories}
+        addToCart={addToCart}
+        orders={orders}
+        categories={categories}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+        maxCalories={maxCalories}
+        setMaxCalories={setMaxCalories}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        setShowCart={setShowCart}
+        setShowOrders={setShowOrders}
+        setShowFoodManagement={setShowFoodManagement}
+        loggedIn={loggedIn}
+        username={username}
+        currentFoods={currentFoods}
+      />
 
     </div>
   );

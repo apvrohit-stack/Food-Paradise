@@ -1,8 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders Food Paradise app and Ammu chatbot launcher', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const titleElement = screen.getByText(/Food Paradise/i);
+  expect(titleElement).toBeInTheDocument();
+
+  const ammuElement = screen.getByLabelText(/Open Ammu Foodie Chatbot/i);
+  expect(ammuElement).toBeInTheDocument();
 });
